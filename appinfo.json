@@ -1,18 +1,17 @@
 {
-    "versionLabel": "1.0",
-    "uuid": "6a66f238-948a-40f6-898f-ba499b6d6d82",
     "appKeys": {},
-    "longName": "Time Until",
-    "versionCode": 1,
-    "capabilities": [
-        ""
-    ],
-    "shortName": "Time Until",
-    "companyName": "kernelsanders",
-    "watchapp": {
-        "watchface": true
-    },
+    "companyName": "kernelsanders/SphinxyScale",
+    "longName": "The Final Countdown",
+    "projectType": "native",
     "resources": {
         "media": []
+    },
+    "sdkVersion": "2",
+    "shortName": "Fnl Cntdn",
+    "uuid": "613b634e-c9a7-4652-a1ed-1bec54326268",
+    "versionCode": 1,
+    "versionLabel": "1.0",
+    "watchapp": {
+        "watchface": true
     }
 }

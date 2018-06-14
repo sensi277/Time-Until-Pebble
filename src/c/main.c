@@ -1,8 +1,10 @@
+// This watchface based on this one: https://github.com/kernel-sanders/Time-Until-Pebble
+
 #include <pebble.h>
 
-#define COUNTDOWNTO 1527206460 // The date/time in unix epoch time to count down to
-#define TIME_ZONE_OFFSET -5 // Timezone offset (-5 == EST)
-#define EVENT "Freedom" // The event you are counting down to	
+#define COUNTDOWNTO 1530316800 // The date/time in unix epoch time to count down to
+#define TIME_ZONE_OFFSET 0 // Timezone offset (-5 == EST)
+#define EVENT "Pebble Shutdown" // The event you are counting down to	
 	
 Window *window;
 TextLayer *text_time_layer;
@@ -17,8 +19,11 @@ void handle_minute_tick(struct tm *tick_time, TimeUnits units_changed) {
 	static char date_text[] = "Xxxxxxxxx 00";
 
 	strftime(date_text, sizeof(date_text), "%B %e", tick_time);
-	text_layer_set_text(text_date_layer, date_text);
+	text_layer_set_text(text_date_layer, "Pebble Shutdown");
+  if (clock_is_24h_style()) {
 	strftime(time_text, sizeof(time_text), "%R", tick_time);
+  }
+  else{strftime(time_text, sizeof(time_text), "%r", tick_time);}
 	text_layer_set_text(text_time_layer, time_text);
 	
 	unsigned int unix_time;
@@ -84,10 +89,10 @@ void handle_init(void) {
 	text_layer_set_text_alignment(text_time_layer, GTextAlignmentCenter);
 	layer_add_child(window_layer, text_layer_get_layer(text_time_layer));
 	// Date
-	text_date_layer = text_layer_create(GRect(0, 43, 144, 31));
+	text_date_layer = text_layer_create(GRect(0, 48, 144, 31));
 	text_layer_set_text_color(text_date_layer, GColorWhite);
 	text_layer_set_background_color(text_date_layer, GColorClear);
-	text_layer_set_font(text_date_layer, fonts_get_system_font(FONT_KEY_GOTHIC_28));
+	text_layer_set_font(text_date_layer, fonts_get_system_font(FONT_KEY_GOTHIC_24));
 	text_layer_set_text_alignment(text_date_layer, GTextAlignmentCenter);
 	layer_add_child(window_layer, text_layer_get_layer(text_date_layer));
 	// Days
