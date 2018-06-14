@@ -1,4 +1,4 @@
-Time-Until-Pebble
+pebbleWebServicesCountdown
 =================
 
 Based on https://github.com/kernel-sanders/Time-Until-Pebble
